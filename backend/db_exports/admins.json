@@ -1,0 +1,11 @@
+[
+  {
+    "admin_id": 1,
+    "username": "admin",
+    "password_hash": "scrypt:32768:8:1$aFBLPS36XTlQuB8d$0c0987eaed78eb9bda67c4f89fd3b16958795846001e64fca2d7b2bd6114703d5dc2740ad20b320722dee2a3940ca3f275721bfa7c5addfe3b820a87ec6f911f",
+    "email": null,
+    "active": 1,
+    "created_at": "2025-12-29 05:08:11",
+    "updated_at": "2025-12-29 05:08:11"
+  }
+]

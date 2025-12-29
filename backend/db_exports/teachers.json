@@ -1,0 +1,24 @@
+[
+  {
+    "teacher_id": 1,
+    "name": "Admin User",
+    "userid": "admin",
+    "password_hash": "scrypt:32768:8:1$iXwLTWHzk1Z7KH1T$d9b25139d5b55366d61aa4aec0480c5a9b6bb6d84c021e0381740cde4e68c49b172541286fd85aafa9aea2616b04042a06adb13bb0191fc492e3289e4f229920",
+    "email": null,
+    "active": 1,
+    "role": "ADMIN",
+    "created_at": "2025-12-28 17:15:59",
+    "updated_at": "2025-12-28 17:15:59"
+  },
+  {
+    "teacher_id": 2,
+    "name": "TestUser",
+    "userid": "testuser",
+    "password_hash": "scrypt:32768:8:1$VEpr2IAnW7G8Ej67$426577e0eae2b03f7c790e4b918a18460a4cd6d7d4677ea90bbce597770245153fea5e488287f2e10f4989d4225f31e2582ea5b400a2d6086dbd683f0e551da2",
+    "email": null,
+    "active": 1,
+    "role": "TEACHER",
+    "created_at": "2025-12-29 04:22:04",
+    "updated_at": "2025-12-29 04:22:04"
+  }
+]

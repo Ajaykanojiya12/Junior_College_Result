@@ -1,0 +1,232 @@
+@startuml
+
+' ===========================
+' Students
+' ===========================
+entity "Students" as Students {
+  * roll_no : int <<PK>>
+  * division : char(1) <<PK>>
+  name : varchar
+  optional_subject : enum('Hindi', 'IT', 'None')
+  optional_subject_2 : enum('Mathematics', 'SP', 'None')
+}
+
+' ===========================
+' Subjects
+' ===========================
+entity "Subjects" as Subjects {
+  * subject_id : int <<PK>>
+  subject_code : varchar <<UNIQUE>>
+  subject_name : varchar
+  subject_type : enum('NUMERIC', 'GRADE')
+  active : boolean
+}
+
+' ===========================
+' Teachers
+' ===========================
+entity "Teachers" as Teachers {
+  * teacher_id : int <<PK>>
+  name : varchar
+  userid : varchar <<UNIQUE>>
+  password_hash : varchar
+  active : boolean
+  role : enum('TEACHER', 'ADMIN')
+}
+
+' ===========================
+' Teacher-Subject Allocations
+' ===========================
+entity "TeacherSubjectAllocations" as Alloc {
+  * allocation_id : int <<PK>>
+  teacher_id : int <<FK>>
+  subject_id : int <<FK>>
+  division : char(1)
+  allocation_type : enum('SINGLE', 'MULTIPLE_IN_SAME_DIVISION', 'DIFFERENT_SUBJECTS_IN_DIFFERENT_DIVISIONS')
+  --
+  UNIQUE(teacher_id, subject_id, division)
+}
+
+' ===========================
+' Marks Tables
+' ===========================
+entity "English_Marks" as EnglishMarks {
+  * mark_id : int <<PK>>
+  * roll_no : int <<FK>>
+  * division : char(1) <<FK>>
+  * subject_id : int <<FK>>
+  unit1 : float
+  unit2 : float
+  internal : float
+  term : float
+  annual : float
+  total : float
+  avg : float
+  grace : float
+  grade : char(2)
+  entered_by : int <<FK>>
+  --
+  UNIQUE(roll_no, division, subject_id)
+}
+
+entity "Hindi_Marks" as HindiMarks {
+  * mark_id : int <<PK>>
+  * roll_no : int <<FK>>
+  * division : char(1) <<FK>>
+  * subject_id : int <<FK>>
+  unit1 : float
+  unit2 : float
+  internal : float
+  term : float
+  annual : float
+  total : float
+  avg : float
+  grace : float
+  grade : char(2)
+  entered_by : int <<FK>>
+  --
+  UNIQUE(roll_no, division, subject_id)
+}
+
+entity "IT_Marks" as ITMarks {
+  * mark_id : int <<PK>>
+  * roll_no : int <<FK>>
+  * division : char(1) <<FK>>
+  * subject_id : int <<FK>>
+  unit1 : float
+  unit2 : float
+  internal : float
+  term : float
+  annual : float
+  total : float
+  avg : float
+  grace : float
+  grade : char(2)
+  entered_by : int <<FK>>
+  --
+  UNIQUE(roll_no, division, subject_id)
+}
+
+entity "Economics_Marks" as EcoMarks {
+  * mark_id : int <<PK>>
+  * roll_no : int <<FK>>
+  * division : char(1) <<FK>>
+  * subject_id : int <<FK>>
+  unit1 : float
+  unit2 : float
+  internal : float
+  term : float
+  annual : float
+  total : float
+  avg : float
+  grace : float
+  grade : char(2)
+  entered_by : int <<FK>>
+  --
+  UNIQUE(roll_no, division, subject_id)
+}
+
+entity "BK_Marks" as BKMarks {
+  * mark_id : int <<PK>>
+  * roll_no : int <<FK>>
+  * division : char(1) <<FK>>
+  * subject_id : int <<FK>>
+  unit1 : float
+  unit2 : float
+  internal : float
+  term : float
+  annual : float
+  total : float
+  avg : float
+  grace : float
+  grade : char(2)
+  entered_by : int <<FK>>
+  --
+  UNIQUE(roll_no, division, subject_id)
+}
+
+entity "OCM_Marks" as OCMMarks {
+  * mark_id : int <<PK>>
+  * roll_no : int <<FK>>
+  * division : char(1) <<FK>>
+  * subject_id : int <<FK>>
+  unit1 : float
+  unit2 : float
+  internal : float
+  term : float
+  annual : float
+  total : float
+  avg : float
+  grace : float
+  grade : char(2)
+  entered_by : int <<FK>>
+  --
+  UNIQUE(roll_no, division, subject_id)
+}
+
+entity "Mathematics_Marks" as MathMarks {
+  * mark_id : int <<PK>>
+  * roll_no : int <<FK>>
+  * division : char(1) <<FK>>
+  * subject_id : int <<FK>>
+  unit1 : float
+  unit2 : float
+  internal : float
+  term : float
+  annual : float
+  total : float
+  avg : float
+  grace : float
+  grade : char(2)
+  entered_by : int <<FK>>
+  --
+  UNIQUE(roll_no, division, subject_id)
+}
+
+entity "SP_Marks" as SPMarks {
+  * mark_id : int <<PK>>
+  * roll_no : int <<FK>>
+  * division : char(1) <<FK>>
+  * subject_id : int <<FK>>
+  unit1 : float
+  unit2 : float
+  internal : float
+  term : float
+  annual : float
+  total : float
+  avg : float
+  grace : float
+  grade : char(2)
+  entered_by : int <<FK>>
+  --
+  UNIQUE(roll_no, division, subject_id)
+}
+
+' ===========================
+' Results
+' ===========================
+entity "Results" as Results {
+  * result_id : int <<PK>>
+  * roll_no : int <<FK>>
+  * division : char(1) <<FK>>
+  english_avg : int
+  english_grace : int
+  hindi_it_avg : int
+  hindi_it_grace : int
+  economics_avg : int
+  economics_grace : int
+  bk_avg : int
+  bk_grace : int
+  ocm_avg : int
+  ocm_grace : int
+  math_sp_avg : int
+  math_sp_grace : int
+  total_marks : int
+  total_grace : int
+  percentage : float
+  final_grade : varchar
+  --
+  UNIQUE(roll_no, division)
+}
+
+@enduml
